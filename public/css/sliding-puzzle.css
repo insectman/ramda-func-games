@@ -1,0 +1,36 @@
+/* @import "compass/css3";*/
+ul {
+  list-style-type: none;
+}
+
+.SlidingPuzzleBoard {
+  max-height: 230px;
+  max-width: 230px;
+  margin: 10px;
+  background: black;
+  border-radius: 5px;
+}
+.SlidingPuzzleBoard .SlidingPuzzle {
+  padding: 10px 10px;
+  height: 210px;
+  width: 210px;
+}
+.SlidingPuzzleBoard .SlidingPuzzle .Tile {
+  float: left;
+  border-top: 5px solid #CCCCCC;
+  border-left: 5px solid #CCCCCC;
+  border-right: 5px solid #787878;
+  border-bottom: 5px solid #787878;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+.SlidingPuzzleBoard figcaption {
+  font-size: 20px;
+  font-style: italic;
+  position: relative;
+  text-indent: 20px;
+}

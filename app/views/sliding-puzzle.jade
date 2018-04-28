@@ -1,0 +1,19 @@
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes')
+    link(type='text/css', rel='stylesheet', href='../css/sliding-puzzle.css')
+    // script>require=()=>({}); module={}; module.exports=()=>({})</script
+    title Sliding Puzzle Quiz
+  body
+    script(src='http://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js')
+    script(src='../js/sliding-puzzle.js')
+    script.
+      const w = 4;                                      //width
+      const h = 4;                                      //height
+      const tt = R.range(0, w * h);                     //tiles
+      const initStateProps = { w, h, tt }
+    script(src='../js/web.js')
+    figure.SlidingPuzzleBoard
+      ul.SlidingPuzzle
+      figcaption A Sliding Puzzle
