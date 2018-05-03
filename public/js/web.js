@@ -10,6 +10,4 @@ $(document).ready(function() {
 
   init(state);
 
-  draw(state);
-
 });

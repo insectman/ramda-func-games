@@ -106,7 +106,7 @@ const checkForSolvability =
 
 const checkForVictory = R.ifElse(
   R.pipe(countInversions, R.equals(0))
-  , R.tap(() => $('figcaption').text('victory'))
+  , R.tap(() => $('figcaption.state').text('victory'))
   , R.identity);
 
 const initState = R.pipe(shuffleTiles, R.until(checkForSolvability, shuffleTiles));
@@ -126,7 +126,9 @@ const draw = (state) => {
   });
 }
 
-const init = (state) => {
+const init = (initStateProps) => {
+
+  let state = { ...initStateProps };
 
   $('.SlidingPuzzleBoard').css({
     'max-height': (70 * state.h + 20) + 'px'
@@ -142,5 +144,12 @@ const init = (state) => {
     state = userAction($(this).data('index'))(state);
     draw(state);
   });
+
+  $(document).on('click', 'figcaption.restart', function () {
+    state = initState(initStateProps);
+    draw(state);
+  });
+
+  draw(state);
 
 }
