@@ -20,7 +20,7 @@ const passport = require('passport');
 const config = require('./config');
 
 const models = join(__dirname, 'app/models');
-const port = process.env.PORT || 7777;
+const port = process.env.PORT || 8080;
 
 const app = express();
 const connection = connect();
@@ -56,7 +56,6 @@ function listen () {
 }
 
 function connect () {
-  var options = { server: { socketOptions: { keepAlive: 1 } } };
-  var connection = mongoose.connect(config.db, options).connection;
+  var connection = mongoose.connection.openUri(config.db);
   return connection;
 }

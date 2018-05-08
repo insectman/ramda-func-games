@@ -6,13 +6,24 @@ const isEven = n => n % 2 === 0;
 
 // array functions
 
+// sets array element values at specified indexes
+const setValuesAtIndexes = (v1, v2, i1, i2) =>
+  R.pipe(
+    R.set(R.lensIndex(i1), v2)
+    , R.set(R.lensIndex(i2), v1)
+  )
+
 // returns an array copy with swapped elements
 const swapElements = (a, i1, i2) =>
+  setValuesAtIndexes(...R.props([i1, i2])(a), i1, i2)(a)
+
+/*
   ((v1, v2) => R.pipe(
     R.set(R.lensIndex(i1), v2)
     , R.set(R.lensIndex(i2), v1)
   )(a))
     (...R.props([i1, i2])(a))// get element values at indexes i1 and i2
+*/
 
 /* 
 impure function, unavoidable because of randomization

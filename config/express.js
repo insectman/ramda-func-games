@@ -14,6 +14,7 @@ var methodOverride = require('method-override');
 var csrf = require('csurf');
 
 var mongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
 var flash = require('connect-flash');
 var winston = require('winston');
 var helpers = require('view-helpers');
@@ -88,10 +89,9 @@ module.exports = function (app, passport) {
     proxy: true,
     resave: true,
     saveUninitialized: true,
-    store: new mongoStore({
-      url: config.db,
-      collection : 'sessions'
-    })
+    store: new mongoStore({ 
+      mongooseConnection: mongoose.connection,
+      collection : 'sessions' })
   }));
 
   // use passport session
