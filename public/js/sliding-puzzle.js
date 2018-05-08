@@ -12,7 +12,7 @@ const swapElements = (a, i1, i2) =>
     R.set(R.lensIndex(i1), v2)
     , R.set(R.lensIndex(i2), v1)
   )(a))
-  (...R.props([i1, i2])(a))// get element values at indexes i1 and i2
+    (...R.props([i1, i2])(a))// get element values at indexes i1 and i2
 
 /* 
 impure function, unavoidable because of randomization
@@ -20,8 +20,7 @@ accepts an array as an argument, returns a function that will return random inde
 that is higher than its argument
 */
 const getRandomHigherIndex = ((array) => (i) =>
-  i + Math.floor(Math.random() * (array.length - i))
-)
+  i + Math.floor(Math.random() * (array.length - i)));
 
 // shuffles an array using Fisher-Yates algorithm
 const shuffle = (array) =>

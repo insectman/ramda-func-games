@@ -4,7 +4,7 @@
  */
 
 module.exports = {
-  db: process.env.MONGODB_URI,
+  db: process.env.MONGODB_URI || 'mongodb://localhost/functional_games',
   facebook: {
     clientID: 'APP_ID',
     clientSecret: 'SECRET',
